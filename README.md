@@ -1,4 +1,6 @@
 # Fotostatur
+
+From this challenge: https://github.com/LambdaSharp/Automated-Image-Workflow-Challenge
   
 > Photostat - _noun_ a still picture taken with a camera [Source](https://www.thesaurus.com/browse/photostat?s=ts)
   
