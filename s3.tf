@@ -1,6 +1,7 @@
 resource "aws_s3_bucket" "image_rekognition_file_upload_bucket" {
-  bucket = "image-rekognition-file-uploads"
-  acl    = "private"
+  bucket        = "image-rekognition-file-uploads"
+  acl           = "private"
+  force_destroy = true
 
   logging {
     target_bucket = aws_s3_bucket.image_rekognition_file_upload_log_bucket.id
@@ -22,6 +23,7 @@ resource "aws_s3_bucket" "image_rekognition_file_upload_bucket" {
 }
 
 resource "aws_s3_bucket" "image_rekognition_file_upload_log_bucket" {
-  bucket = "image-rekognition-file-upload-logs"
-  acl    = "log-delivery-write"
+  bucket        = "image-rekognition-file-upload-logs"
+  acl           = "log-delivery-write"
+  force_destroy = true
 }
