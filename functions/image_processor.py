@@ -15,18 +15,18 @@ def handler(event, context):
         bucket = record['s3']['bucket']['name']
         key = record['s3']['object']['key']
         logger.info('Detecting labels for ' + key) 
-        detect_labels_response = rekog_client.detect_labels(Image={'S3Object':{'Bucket':bucket,'Name':key}},
+        detection_response = rekog_client.detect_labels(Image={'S3Object':{'Bucket':bucket,'Name':key}},
         MaxLabels=10)
-        detected_labels = _detect_labels(detect_labels_response)
-        _score_labels(detect_labels_response)
+        detected_labels = _detect_labels(detection_response)
+        _score_labels(detection_response)
         
         logger.info('Detecting text for ' + key) 
-        detect_labels_response = rekog_client.detect_text(Image={'S3Object':{'Bucket':bucket,'Name':key}})
-        _detect_text(detect_labels_response)
+        detection_response = rekog_client.detect_text(Image={'S3Object':{'Bucket':bucket,'Name':key}})
+        _detect_text(detection_response)
         
         logger.info('Detecting celebrities for ' + key) 
-        detect_labels_response = rekog_client.recognize_celebrities(Image={'S3Object':{'Bucket':bucket,'Name':key}})
-        _detect_celebrities(detect_labels_response)
+        detection_response = rekog_client.recognize_celebrities(Image={'S3Object':{'Bucket':bucket,'Name':key}})
+        _detect_celebrities(detection_response)
         
 
 def _detect_labels(labels):

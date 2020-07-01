@@ -1,13 +1,13 @@
 data "archive_file" "image_processor_lambda_archive" {
   type        = "zip"
-  source_file = "functions/image_processor.py"
-  output_path = "functions/image_processor.zip"
+  source_file = "../functions/image_processor.py"
+  output_path = "../functions/image_processor.zip"
 }
 
 data "archive_file" "temp_url_lambda_archive" {
   type        = "zip"
-  source_file = "functions/temp_url.py"
-  output_path = "functions/temp_url.zip"
+  source_file = "../functions/temp_url.py"
+  output_path = "../functions/temp_url.zip"
 }
 
 resource "aws_iam_role" "temp_url_lambda_exec_role" {
@@ -29,7 +29,7 @@ resource "aws_lambda_permission" "allow_bucket" {
 }
 
 resource "aws_lambda_function" "image_processor_lambda" {
-  filename         = "functions/image_processor.zip"
+  filename         = "../functions/image_processor.zip"
   function_name    = "image_processor_lambda"
   role             = aws_iam_role.image_processor_lambda_exec_role.arn
   handler          = "image_processor.handler"
@@ -41,7 +41,7 @@ resource "aws_lambda_function" "image_processor_lambda" {
 }
 
 resource "aws_lambda_function" "temp_url_lambda" {
-  filename         = "functions/temp_url.zip"
+  filename         = "../functions/temp_url.zip"
   function_name    = "temp_url_lambda"
   role             = aws_iam_role.temp_url_lambda_exec_role.arn
   handler          = "temp_url.handler"

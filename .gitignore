@@ -1,6 +1,6 @@
 # Terraform
 plan
-.terraform/*
+*/.terraform/*
 
 # Other
 *.zip
