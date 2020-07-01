@@ -6,7 +6,7 @@ We want to provide authenticated users a way to upload images to an S3 bucket. W
 
 ### Client
 ![](diagrams/signed_url_diagram.png)
-The client is a simple web page that allows users to upload an image to S3. The client will make a request to get a temporary URL. This triggers a lambda which asks S3 to generate a presigned URL that only accepts POST for a limited time. The client then uploads the selected file to the URL provided in the first request.
+The client is a simple web page that allows users to upload an image to S3. The client will make a request to get a temporary URL. This triggers a lambda which asks S3 to generate a presigned URL that only accepts POST for a limited time. A presigned URL can be valid for a maximum of seven days because the signing key used in the signature calculation is valid for up to seven days. The default is five minutes. The client then uploads the selected file to the URL provided in the first request. 
 
 ### Image Rekognition
 ![](diagrams/image_rekognition.png)
