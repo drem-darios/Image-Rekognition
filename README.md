@@ -2,7 +2,7 @@
 From this challenge: https://github.com/LambdaSharp/Automated-Image-Workflow-Challenge
   
 ## Problem
-We want to provide authenticated users a way to upload images to an S3 bucket. We also want to limit the user's access to this bucket as much as possible. To do this, we will make an HTTP request to get a temporary URL that gives us access to this S3 bucket. 
+We want to provide authenticated users a way to upload images to an S3 bucket. We also want to limit the user's access to this bucket as much as possible. To do this, the client will make an HTTP request to get a temporary URL that gives us access to POST to the S3 bucket. 
 
 ### Client
 ![](diagrams/signed_url_diagram.png)
